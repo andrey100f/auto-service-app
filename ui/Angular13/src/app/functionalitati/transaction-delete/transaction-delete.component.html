@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="form-group">
+        <label class="col-lg col-form-label"> Introduceti prima zi </label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" [(ngModel)]="date_left" placeholder="Data">
+        </div>
+        <label class="col-lg col-form-label"> Introduceti a dua zi </label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" [(ngModel)]="date_right" placeholder="Data">
+        </div>
+        <br>
+        <button type="button" class="m-2 btn btn-primary" (click)="undo()"> Undo </button>
+        <button type="button" class="m-2 btn btn-primary" (click)="redo()"> Redo </button>
+        <button type="button" class="m-2 btn btn-danger float-right m-2" (click)="transaction_delete_interval()">
+            Delete
+        </button>
+    </div>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Tranzactie </th>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Suma manopera </th>
+                <th scope="col"> Suma piese </th>
+                <th scope="col"> Data </th>
+                <th scope="col"> Ora </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transaction_list">
+                <td> {{transaction.id_transaction}} </td>
+                <td> {{transaction.id_car}} </td>
+                <td> {{transaction.id_customer_card}} </td>
+                <td> {{transaction.sum_of_labor}} </td>
+                <td> {{transaction.sum_of_parts}} </td>
+                <td> {{transaction.date}} </td>
+                <td> {{transaction.hour}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

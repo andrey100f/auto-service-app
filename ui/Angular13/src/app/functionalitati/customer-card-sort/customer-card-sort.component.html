@@ -1,0 +1,27 @@
+<div class="container">
+    <button type="button" class="btn btn-secondary float-right m-2" (click)="get_list()"> Obtineti lista </button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Nume </th>
+                <th scope="col"> Prenume </th>
+                <th scope="col"> CNP </th>
+                <th scope="col"> Data nasterii </th>
+                <th scope="col"> Data inregistrarii </th>
+                <th scope="col"> Reduceri </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer_card of final_list">
+                <td> {{customer_card.id_customer_card}} </td>
+                <td> {{customer_card.last_name}} </td>
+                <td> {{customer_card.first_name}} </td>
+                <td> {{customer_card.cnp}} </td>
+                <td> {{customer_card.date_of_birth}} </td>
+                <td> {{customer_card.date_of_registration}} </td>
+                <td> {{customer_card.reducere | number}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

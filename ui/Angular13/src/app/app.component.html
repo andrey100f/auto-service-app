@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="display-4 text-center"> Service auto </h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class="nav">
+            <li class="nav-item">
+                <button type="button" routerLink="car" class="m-2 btn btn-info"> Masini </button>
+            </li>
+            <li class="nav-item">
+                <button type="button" routerLink="customer_card" class="m-2 btn btn-info"> Carduri client </button>
+            </li>
+            <li class="nav-item">
+                <button type="button" routerLink="transaction" class="m-2 btn btn-info"> Tranzactii </button>
+            </li>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Functionalitati
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="cautare_full_text"> Cautare full text </a>
+                    <a class="dropdown-item" routerLink="transaction_interval"> Afișarea tuturor tranzacțiilor cu suma cuprinsă într-un interval
+                        dat. </a>
+                    <a class="dropdown-item" routerLink="car_sort"> Afișarea mașinilor ordonate descrescător după suma obținută pe
+                        manoperă.</a>
+                    <a class="dropdown-item" routerLink="customer_card_sort"> Afișarea cardurilor client ordonate descrescător după valoarea
+                        reducerilor obținute. </a>
+                    <a class="dropdown-item" routerLink="transaction_delete"> Ștergerea tuturor tranzacțiilor dintr-un anumit interval de zile. </a>
+                    <a class="dropdown-item" routerLink="update_guarantee"> Actualizare garantie. </a>
+                    <a class="dropdown-item" routerLink="random_generate"> Generare random masini </a>
+                    <a class="dropdown-item" routerLink="cascade_delete"> Stergere in cascada </a>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <router-outlet></router-outlet>
+</div>

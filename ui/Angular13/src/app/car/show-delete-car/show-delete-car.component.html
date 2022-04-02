@@ -1,0 +1,58 @@
+<div class="container">
+    <br>
+    <p class="h1 text-center"> Lista masini </p>
+    <br>
+    <button type="button" class="m-2 btn btn-primary" (click)="undo()"> Undo </button>
+    <button type="button" class="m-2 btn btn-primary" (click)="redo()"> Redo </button>
+    <button type="button" class="btn btn-success float-right m-2" data-toggle="modal" data-target="#exampleModal"
+        (click)="add_click()" data-backdrop="static" data-keyboard="false">
+        Adaugare masina
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> {{modal_title}} </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close_click()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <app-add-edit-car [car]="car" *ngIf="run_add_edit_car">
+                    </app-add-edit-car>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> Model </th>
+                <th scope="col"> An achizitie </th>
+                <th scope="col"> Numar kilometri </th>
+                <th scope="col"> Garantie </th>
+                <th scope="col"> Options </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of car_list">
+                <td> {{car.id_car}} </td>
+                <td> {{car.model}} </td>
+                <td> {{car.year_of_purchase}} </td>
+                <td> {{car.number_of_kilometers}} </td>
+                <td> {{car.guarantee}} </td>
+                <td>
+                    <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        (click)="edit_click(car)" data-backdrop="static" data-keyboard="false">
+                        Update
+                    </button>
+                    <button type="button" class="m-2 btn btn-danger" (click)="delete_click(car)"> Delete </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

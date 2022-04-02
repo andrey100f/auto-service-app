@@ -1,0 +1,52 @@
+<div class="container">
+    <h5> Cautare masini </h5>
+    <input type="text" [(ngModel)]="search_value" class="form-control" placeholder="Cautare masini">
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> Model </th>
+                <th scope="col"> An achizitie </th>
+                <th scope="col"> Numar kilometri </th>
+                <th scope="col"> Garantie </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of car_list | searchFilter: search_value">
+                <td> {{car.id_car}} </td>
+                <td> {{car.model}} </td>
+                <td> {{car.year_of_purchase}} </td>
+                <td> {{car.number_of_kilometers}} </td>
+                <td> {{car.guarantee}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h5> Cautare carduri client </h5>
+    <input type="text" [(ngModel)]="search_value_customer_card" class="form-control"
+        placeholder="Cautare carduri client">
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Nume </th>
+                <th scope="col"> Prenume </th>
+                <th scope="col"> CNP </th>
+                <th scope="col"> Data nasterii </th>
+                <th scope="col"> Data inregistrarii </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer_card of customer_card_list | searchFilterCustomerCard: search_value_customer_card">
+                <td> {{customer_card.id_customer_card}} </td>
+                <td> {{customer_card.last_name}} </td>
+                <td> {{customer_card.first_name}} </td>
+                <td> {{customer_card.cnp}} </td>
+                <td> {{customer_card.date_of_birth}} </td>
+                <td> {{customer_card.date_of_registration}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

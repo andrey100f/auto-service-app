@@ -1,0 +1,23 @@
+<div class="container">
+    <button type="button" class="btn btn-secondary float-right m-2" (click)="update_guarantee()"> Actualizare garantie </button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> Model </th>
+                <th scope="col"> An achizitie </th>
+                <th scope="col"> Numar kilometri </th>
+                <th scope="col"> Garantie </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of car_list">
+                <td> {{car.id_car}} </td>
+                <td> {{car.model}} </td>
+                <td> {{car.year_of_purchase}} </td>
+                <td> {{car.number_of_kilometers}} </td>
+                <td> {{car.guarantee}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

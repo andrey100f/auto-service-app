@@ -1,0 +1,29 @@
+<div class="container">
+    <input type="text" class="form-control" [(ngModel)]="search_value" placeholder="Introduceti capetele intervalului">
+    <button type="button" class="btn btn-secondary float-right m-2" (click)="click_interval()"> Selectati </button>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Tranzactie </th>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Suma manopera </th>
+                <th scope="col"> Suma piese </th>
+                <th scope="col"> Data </th>
+                <th scope="col"> Ora </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transaction_list">
+                <td> {{transaction.id_transaction}} </td>
+                <td> {{transaction.id_car}} </td>
+                <td> {{transaction.id_customer_card}} </td>
+                <td> {{transaction.sum_of_labor}} </td>
+                <td> {{transaction.sum_of_parts}} </td>
+                <td> {{transaction.date}} </td>
+                <td> {{transaction.hour}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+    <br>
+    <p class="h1 text-center"> Lista carduri client </p>
+    <br>
+    <button type="button" class="m-2 btn btn-primary" (click)="undo()"> Undo </button>
+    <button type="button" class="m-2 btn btn-primary" (click)="redo()"> Redo </button>
+    <button type="button" class="btn btn-success float-right m-2" data-toggle="modal" data-target="#exampleModal"
+        (click)="add_click()" data-backdrop="static" data-keyboard="false">
+        Adaugare card client
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> {{modal_title}} </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close_click()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <app-add-edit-customer-card [customer_card]="customer_card" *ngIf="run_add_edit_customer_card">
+                    </app-add-edit-customer-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Nume </th>
+                <th scope="col"> Prenume </th>
+                <th scope="col"> CNP </th>
+                <th scope="col"> Data nasterii </th>
+                <th scope="col"> Data inregistrarii </th>
+                <th scope="col"> Options </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer_card of customer_card_list">
+                <td> {{customer_card.id_customer_card}} </td>
+                <td> {{customer_card.last_name}} </td>
+                <td> {{customer_card.first_name}} </td>
+                <td> {{customer_card.cnp}} </td>
+                <td> {{customer_card.date_of_birth}} </td>
+                <td> {{customer_card.date_of_registration}} </td>
+                <td>
+                    <button type="button" class="m-2 btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                        (click)="edit_click(customer_card)" data-backdrop="static" data-keyboard="false">
+                        Update
+                    </button>
+                    <button type="button" class="m-2 btn btn-danger" (click)="delete_click(customer_card)"> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

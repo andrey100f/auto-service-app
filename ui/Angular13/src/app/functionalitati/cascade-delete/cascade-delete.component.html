@@ -1,0 +1,67 @@
+<div class="container">
+    <br>
+    <div class="form-group">
+        <label class="col-lg col-form-label"> Introduceti ID-ul masinii </label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="delete">
+                <option *ngFor="let car of car_list">
+                    {{car.id_car}}
+                </option>
+            </select>
+        </div>
+        <br>
+        <button type="button" class="m-2 btn btn-danger float-right m-2" (click)="cascade_delete()">
+            Delete
+        </button>
+    </div>
+    <br>
+    <p class="h1 text-center"> Lista masini </p>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> Model </th>
+                <th scope="col"> An achizitie </th>
+                <th scope="col"> Numar kilometri </th>
+                <th scope="col"> Garantie </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of car_list">
+                <td> {{car.id_car}} </td>
+                <td> {{car.model}} </td>
+                <td> {{car.year_of_purchase}} </td>
+                <td> {{car.number_of_kilometers}} </td>
+                <td> {{car.guarantee}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <p class="h1 text-center"> Lista tranzactii </p>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> ID Tranzactie </th>
+                <th scope="col"> ID Masina </th>
+                <th scope="col"> ID Card client </th>
+                <th scope="col"> Suma manopera </th>
+                <th scope="col"> Suma piese </th>
+                <th scope="col"> Data </th>
+                <th scope="col"> Ora </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transaction_list">
+                <td> {{transaction.id_transaction}} </td>
+                <td> {{transaction.id_car}} </td>
+                <td> {{transaction.id_customer_card}} </td>
+                <td> {{transaction.sum_of_labor}} </td>
+                <td> {{transaction.sum_of_parts}} </td>
+                <td> {{transaction.date}} </td>
+                <td> {{transaction.hour}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
